@@ -20,6 +20,7 @@ X_train = np.load(args.x)
 
 result_model = []
 
+
 result_model.append(isolation_forest(X_train))
 result_model.append(one_class_svm(X_train))
 result_model.append(iso_2auto(X_train))

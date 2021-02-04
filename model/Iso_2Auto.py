@@ -12,16 +12,19 @@ import numpy as np
 # define the autoencoder network model
 def nn_autoencoder_model(X):
     inputs = Input(shape=(X.shape[1],))
-    encode = Dense(4, activation='relu',kernel_regularizer=regularizers.l2(0.01))(inputs)
+    input_dim = X.shape[1]
+    encode = Dense(input_dim//3*2, activation='relu',kernel_regularizer=regularizers.l2(0.01))(inputs)
     encode = BatchNormalization()(encode)
-    encode = Dense(2, activation='relu',kernel_regularizer=regularizers.l2(0.01))(encode)
+    encode = Dense(input_dim//3, activation='relu',kernel_regularizer=regularizers.l2(0.01))(encode)
     encode = BatchNormalization()(encode)
     encode = Dense(1, activation='relu',kernel_regularizer=regularizers.l2(0.01))(encode)
     encode = BatchNormalization()(encode)
 
-    decode = Dense(2, activation='relu')(encode)
+    decode = Dense(input_dim//3, activation='relu')(encode)
     decode = BatchNormalization()(decode)
-    output = Dense(4, activation='sigmoid')(decode)
+    decode = Dense(input_dim//3*2, activation='relu')(decode)
+    decode = BatchNormalization()(decode)
+    output = Dense(input_dim, activation='sigmoid')(decode)
     model = Model(inputs=inputs, outputs=output)
     return model
 
