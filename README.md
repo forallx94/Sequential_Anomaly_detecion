@@ -10,7 +10,6 @@ Anomaly detection for Sequential dataset
 * Isolation Forest
 * One-Class SVM
 * Unsupervised log message anomaly detection (2 Autoencode + Isolation)
-* A Deep Neural Network for Unsupervised Anomaly Detection and Diagnosis in Multivariate Time Series Data (MSCRED)
 
 
 ## Reference
