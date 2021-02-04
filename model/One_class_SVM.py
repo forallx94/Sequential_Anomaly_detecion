@@ -1,15 +1,16 @@
 from sklearn.decomposition import PCA
-from sklearn.ensemble import IsolationForest
+from sklearn.svm import OneClassSVM
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def isolation_forest(X_train):
-    clf = IsolationForest(random_state = 42)
-    clf.fit(X_train)
+def one_class_svm(X_train):
+    clf = OneClassSVM(gamma='auto').fit(X_train)
     pred = clf.predict(X_train)
+    pred_score = clf.score_samples(X_train)
 
     pca = PCA(n_components=2)
-    printcipalComponents = pca.fit_transform(X_train)
+    pca.fit(X_train)
+    printcipalComponents = pca.transform(X_train)
     principalDf = pd.DataFrame(data=printcipalComponents, columns = ['principal component1', 'principal component2'])
 
     fig = plt.figure(figsize = (8, 8))
@@ -28,6 +29,7 @@ def isolation_forest(X_train):
                 , s = 50)
     ax.legend(targets)
     ax.grid()
-    plt.savefig('./result/Isolation_Forest_PCA.png')
+
+    plt.savefig('./result/One_class_SVM_PCA.png')
 
     return clf
