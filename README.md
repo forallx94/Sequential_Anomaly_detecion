@@ -9,7 +9,8 @@ Anomaly detection for Sequential dataset
   * NN Autoencoder 
 * Isolation Forest
 * One-Class SVM
-* Unsupervised log message anomaly detection (2 Autoencode + Isolation)
+* Autoencoder + Isolation Forest
+* Unsupervised log message anomaly detection (2 Autoencoder + Isolation Forest)
 
 
 ## Reference
