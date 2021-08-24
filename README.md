@@ -4,14 +4,21 @@ Anomaly detection for Sequential dataset
 
 ## Model
 
+* ML
+  * Isolation Forest
+  * One-Class SVM
 * Autoencoder
   * LSTM Autoencoder
   * NN Autoencoder 
-* Isolation Forest
-* One-Class SVM
-* Autoencoder + Isolation Forest
-* Unsupervised log message anomaly detection (2 Autoencoder + Isolation Forest)
+  * Unsupervised log message anomaly detection (2 Autoencode + Isolation)
 
+## Will do
+
+* Prediction
+  * NN
+  * LSTM
+  * Bidirectional LSTM
+  * Residual Bidirectional LSTM
 
 ## Reference
 * Dataset, LSTM Autoencoder : https://github.com/BLarzalere/LSTM-Autoencoder-for-Anomaly-Detection
